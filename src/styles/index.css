@@ -1,0 +1,29 @@
+html,
+body,
+#root {
+  background: transparent !important;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+body {
+  /* @apply bg-gray-50; */
+  font-family: "Poppins", sans-serif;
+}
+
+/* Area yang bisa di-drag */
+.drag-region {
+  -webkit-app-region: drag;
+  cursor: move;
+}
+
+/* Tombol, input, dsb harus non-draggable */
+.no-drag {
+  -webkit-app-region: no-drag;
+}
+
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));

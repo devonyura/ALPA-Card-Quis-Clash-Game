@@ -1,0 +1,55 @@
+{
+  "name": "alpa-card-quis-clash-game",
+  "version": "0.1.0",
+  "private": true,
+  "main": "electron-main.js",
+  "homepage": "./",
+  "scripts": {
+    "dev": "concurrently \"npm:dev:vite\"",
+    "dev:electron-all": "concurrently \"npm:dev:vite\" \"npm:dev:electron\"",
+    "dev:vite": "vite",
+    "dev:electron": "cross-env NODE_ENV=development wait-on http://localhost:5173 && electron .",
+    "build": "vite build",
+    "electron": "electron .",
+    "dist": "npm run build && electron-builder",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "cra-template": "1.2.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.2",
+    "react-scripts": "5.0.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.0",
+    "autoprefixer": "^10.0.0",
+    "concurrently": "^7.6.0",
+    "cross-env": "^7.0.0",
+    "electron": "^26.0.0",
+    "electron-builder": "^26.0.12",
+    "electron-packager": "^17.1.2",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react": "^7.37.4",
+    "postcss": "^8.0.0",
+    "tailwindcss": "^3.0.0",
+    "vite": "^5.0.0",
+    "wait-on": "^6.0.1"
+  },
+  "build": {
+    "appId": "com.yurainteractive.mywidget",
+    "productName": "MyWidget",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron-main.js",
+      "package.json"
+    ],
+    "win": {
+      "target": "portable",
+      "icon": "icon.ico"
+    }
+  }
+}
